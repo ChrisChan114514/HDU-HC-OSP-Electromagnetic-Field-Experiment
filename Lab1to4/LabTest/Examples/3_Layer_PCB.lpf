@@ -1,0 +1,432 @@
+!-------------- Process Definition File Exported from Microwave Office --------
+! Note, if you want this to be your default LPF file, please rename it to default.lpf 
+! and place it in your root install directory.   
+ 
+
+$PROCESS_SETUP_BEGIN
+
+	$DEFAULT_UNITS_BEGIN
+		LEN  mil
+		FREQ G
+		CAP  p
+		IND  n
+		RES  none
+		COND none
+		TEMP DegC
+		ANG  Deg
+		TIME n
+		VOLT none
+		CUR  m
+		PWR  m
+	$DEFAULT_UNITS_END
+
+	$DBASE_UNIT_BEGIN
+		DRAW_RESOLUTION	0.005	mil
+		GRID_SPACING	1	mil
+	$DBASE_UNIT_END
+
+	$LINE_TYPE_BEGIN	"line 5 mil space"
+		! -> Layer 		offset 		minWidth 		flags
+		"Metal"		0		5e-006		0
+		"Metal-"		0.000127		5e-006		0
+	$LINE_TYPE_END
+
+	$LINE_TYPE_BEGIN	"line 10 mil space"
+		! -> Layer 		offset 		minWidth 		flags
+		"Metal"		0		5e-006		0
+		"Metal-"		0.000254		5e-006		0
+	$LINE_TYPE_END
+
+	$LINE_TYPE_BEGIN	"line 20 mil space"
+		! -> Layer 		offset 		minWidth 		flags
+		"Metal"		0		5e-006		0
+		"Metal-"		0.000508		5e-006		0
+	$LINE_TYPE_END
+
+	$LINE_TYPE_BEGIN	"line 25 mil space"
+		! -> Layer 		offset 		minWidth 		flags
+		"Metal"		0		5e-006		0
+		"Metal-"		0.000635		5e-006		0
+	$LINE_TYPE_END
+
+	$LINE_TYPE_BEGIN	"line 50 mil space"
+		! -> Layer 		offset 		minWidth 		flags
+		"Metal"		0		5e-006		0
+		"Metal-"		0.00127		5e-006		0
+	$LINE_TYPE_END
+
+	$LINE_TYPE_BEGIN	"line 75 mil space"
+		! -> Layer 		offset 		minWidth 		flags
+		"Metal"		0		5e-006		0
+		"Metal-"		0.001905		5e-006		0
+	$LINE_TYPE_END
+
+	$LINE_TYPE_BEGIN	"line 100 mil space"
+		! -> Layer 		offset 		minWidth 		flags
+		"Metal"		0		5e-006		0
+		"Metal-"		0.00254		5e-006		0
+	$LINE_TYPE_END
+
+	$LINE_TYPE_BEGIN	"ground floods"
+		! -> Layer 		offset 		minWidth 		flags
+		"MS Metal+"		0		5e-006		0
+		"SL Metal+"		0		5e-006		0
+		"TGr Metal+"		0		5e-006		0
+		"BGr Metal"		0		5e-006		0
+	$LINE_TYPE_END
+
+	$VIA_DEFINE_BEGIN
+		! -> Layer 		offset 		minWidth 		flags
+		"Via"		0		5e-006		1
+		"vtMetal"		0.000254		5e-006		1
+		"vtMetal-"		0.000889		5e-006		1
+		"vgMetal-"		0.000889		5e-006		1
+		"vbMetal"		0.000254		5e-006		1
+		"vbMetal-"		0.000889		5e-006		1
+	$VIA_DEFINE_END
+
+	!--- Registered drawing utility function used for drawing airbridges ------
+	$BRIDGE_DRAW_BEGIN AWR_MMIC $BRIDGE_DRAW_END
+
+	!--- File used for polygon DRC rules ------
+	$DRC_RULES_FILE_BEGIN "$MWO\drc_rules.txt" $DRC_RULES_FILE_END
+
+	$CONNECT_RULES_BEGIN 
+		Connect "MS Metal" To "SL Metal" by "Via MS 2 SL"
+		Connect "MS Metal" To "TGr Metal" by "Via MS 2 Gnd"
+		Connect "SL Metal" To "TGr Metal" by "Via SL 2 Gnd T"
+		Connect "SL Metal" To "BGr Metal" by "Via SL 2 Gnd B"
+		
+	$CONNECT_RULES_END
+	
+	!--- Default font used for layout ------
+	$DEFAULT_FONT_BEGIN "Arial" 	100000	0	0 	$DEFAULT_FONT_END
+
+	$DEFAULT_VALUES_BEGIN
+		W		25		mil
+		L		100		mil
+		H		25		mil
+		T		0.0787402		mil
+		Er		3.2
+		Rho		1
+		Tand		0
+		C		1		p
+		Li		0		n
+		Rad		0		mil
+		M		0.6
+	$DEFAULT_VALUES_END
+
+
+$PROCESS_SETUP_END
+
+
+!-------------- Drawing Layer Setup Defined Below ------------------------------
+$LAYER_SETUP_BEGIN
+
+$DRAW_LAYERS_BEGIN
+
+!--------------------------------- Layer Entry Descriptions ----------------------------------------------------------------------------------------------------
+! Layer_Name  Line_Color   Fill_Color  line_style hatch isVia isHatchVis isFrozen thickness z_pos texture  transFill  translucent texturescale file_layer options
+!----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+"Error"	255	255	0	1	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+"Grid"	0	0	0	1	1	1	0	8000	0	""	0	0	0	"Obsolete"	0
+"Default"	0	0	0	0	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+"SubcircuitAnnotation"	4259648	4259648	2	8	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+"Annotation"	16776960	16776960	2	8	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+"RatsNest"	4210943	4210943	0	0	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+"DrillHoles"	2105376	2105376	0	0	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+"DimensionLines"	2105376	2105376	0	0	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+"Package"	8421376	8421376	0	1	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+"Leads"	16711935	16711935	0	1	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+"Bottom Resistor"	16711680	16711680	0	1	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+"Top Resistor"	16711680	16711680	0	1	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+"Via MS 2 SL"	16776960	16776960	0	1	1	1	0	1.27e+006	635000	""	0	0	0	"Obsolete"	0
+"Via MS 2 Gnd"	8388608	8388608	0	1	1	1	0	635000	1.27e+006	""	0	0	0	"Obsolete"	0
+"Via SL 2 Gnd T"	32768	32768	0	1	1	1	0	635000	635000	""	0	0	0	"Obsolete"	0
+"Via SL 2 Gnd B"	65535	65535	0	1	1	1	0	635000	0	""	0	0	0	"Obsolete"	0
+"MS Metal"	32896	32896	0	1	1	1	0	25400	1.905e+006	""	0	0	0	"Obsolete"	0
+"MS Metal-"	16777215	16777215	0	1	1	1	0	25400	1.905e+006	""	1	0	0	"Obsolete"	0
+"MS Metal+"	32896	32896	0	1	1	1	0	25400	1.905e+006	""	1	0.1	0	"Obsolete"	0
+"TGr Metal"	65280	65280	0	1	1	1	0	25400	1.27e+006	""	1	0	0	"Obsolete"	0
+"TGr Metal-"	65280	16777215	0	1	1	1	0	25400	1.27e+006	""	1	0	0	"Obsolete"	0
+"TGr Metal+"	65280	65280	0	1	1	1	0	25400	1.27e+006	""	1	0.1	0	"Obsolete"	0
+"SL Metal"	8421376	8421376	0	1	1	1	0	25400	635000	""	0	0	0	"Obsolete"	0
+"SL Metal-"	16777215	16777215	0	1	1	1	0	25400	635000	""	1	0	0	"Obsolete"	0
+"SL Metal+"	8421376	8421376	0	1	1	1	0	25400	635000	""	1	0.1	0	"Obsolete"	0
+"BGr Metal"	128	128	0	1	1	1	0	25400	0	""	1	0.5	0	"Obsolete"	0
+$DRAW_LAYERS_END
+
+$MODEL_LAYER_BEGIN
+
+$MAP_NAME	"MS Map"
+"Error"	"Error"
+"Grid"	"Grid"
+"Default"	"Default"
+"SubcircuitAnnotation"	"SubcircuitAnnotation"
+"Annotation"	"Annotation"
+"RatsNest"	"RatsNest"
+"DrillHoles"	"DrillHoles"
+"DimensionLines"	"DimensionLines"
+"Package"	"Package"
+"Leads"	"Leads"
+"Bottom Resistor"	"Bottom Resistor"
+"Top Resistor"	"Top Resistor"
+"Via MS 2 SL"	"Via MS 2 SL"
+"Via MS 2 Gnd"	"Via MS 2 Gnd"
+"Via SL 2 Gnd T"	"Via SL 2 Gnd T"
+"Via SL 2 Gnd B"	"Via SL 2 Gnd B"
+"MS Metal"	"MS Metal"
+"MS Metal-"	"MS Metal-"
+"MS Metal+"	"MS Metal+"
+"TGr Metal"	"TGr Metal"
+"TGr Metal-"	"TGr Metal-"
+"TGr Metal+"	"TGr Metal+"
+"SL Metal"	"SL Metal"
+"SL Metal-"	"SL Metal-"
+"SL Metal+"	"SL Metal+"
+"BGr Metal"	"BGr Metal"
+"Metal"	"MS Metal"
+"Metal-"	"MS Metal-"
+"Via"	"Via MS 2 SL"
+"vtMetal"	"MS Metal"
+"vtMetal-"	"MS Metal-"
+"vgMetal-"	"TGr Metal-"
+"vbMetal"	"SL Metal"
+"vbMetal-"	"SL Metal-"
+$MAP_NAME	"MS 2 Gnd"
+"Error"	"Error"
+"Grid"	"Grid"
+"Default"	"Default"
+"SubcircuitAnnotation"	"SubcircuitAnnotation"
+"Annotation"	"Annotation"
+"RatsNest"	"RatsNest"
+"DrillHoles"	"DrillHoles"
+"DimensionLines"	"DimensionLines"
+"Package"	"Package"
+"Leads"	"Leads"
+"Bottom Resistor"	"Bottom Resistor"
+"Top Resistor"	"Top Resistor"
+"Via MS 2 SL"	"Via MS 2 SL"
+"Via MS 2 Gnd"	"Via MS 2 Gnd"
+"Via SL 2 Gnd T"	"Via SL 2 Gnd T"
+"Via SL 2 Gnd B"	"Via SL 2 Gnd B"
+"MS Metal"	"MS Metal"
+"MS Metal-"	"MS Metal-"
+"MS Metal+"	"MS Metal+"
+"TGr Metal"	"TGr Metal"
+"TGr Metal-"	"TGr Metal-"
+"TGr Metal+"	"TGr Metal+"
+"SL Metal"	"SL Metal"
+"SL Metal-"	"SL Metal-"
+"SL Metal+"	"SL Metal+"
+"BGr Metal"	"BGr Metal"
+"Metal"	"MS Metal"
+"Metal-"	"MS Metal-"
+"Via"	"Via MS 2 Gnd"
+"vtMetal"	"MS Metal"
+"vtMetal-"	"MS Metal-"
+"vgMetal-"	"TGr Metal+"
+"vbMetal"	"TGr Metal+"
+"vbMetal-"	"TGr Metal+"
+$MAP_NAME	"SL Map"
+"Error"	"Error"
+"Grid"	"Grid"
+"Default"	"Default"
+"SubcircuitAnnotation"	"SubcircuitAnnotation"
+"Annotation"	"Annotation"
+"RatsNest"	"RatsNest"
+"DrillHoles"	"DrillHoles"
+"DimensionLines"	"DimensionLines"
+"Package"	"Package"
+"Leads"	"Leads"
+"Bottom Resistor"	"Bottom Resistor"
+"Top Resistor"	"Top Resistor"
+"Via MS 2 SL"	"Via MS 2 SL"
+"Via MS 2 Gnd"	"Via MS 2 Gnd"
+"Via SL 2 Gnd T"	"Via SL 2 Gnd T"
+"Via SL 2 Gnd B"	"Via SL 2 Gnd B"
+"MS Metal"	"MS Metal"
+"MS Metal-"	"MS Metal-"
+"MS Metal+"	"MS Metal+"
+"TGr Metal"	"TGr Metal"
+"TGr Metal-"	"TGr Metal-"
+"TGr Metal+"	"TGr Metal+"
+"SL Metal"	"SL Metal"
+"SL Metal-"	"SL Metal-"
+"SL Metal+"	"SL Metal+"
+"BGr Metal"	"BGr Metal"
+"Metal"	"SL Metal"
+"Metal-"	"SL Metal-"
+"Via"	"Via SL 2 Gnd B"
+"vtMetal"	"SL Metal"
+"vtMetal-"	"SL Metal-"
+"vgMetal-"	"BGr Metal"
+"vbMetal"	"BGr Metal"
+"vbMetal-"	"BGr Metal"
+
+$MODEL_LAYER_END
+
+$EM_MAPPING_BEGIN
+$EM_MAP	"Default"
+"Error"	0	0	""
+"Grid"	0	0	""
+"Default"	0	0	""
+"SubcircuitAnnotation"	0	0	""
+"Annotation"	0	0	""
+"RatsNest"	0	0	""
+"DrillHoles"	0	0	""
+"DimensionLines"	0	0	""
+"Package"	0	0	""
+"Leads"	0	0	""
+"Bottom Resistor"	0	0	""
+"Top Resistor"	0	0	""
+"Via MS 2 SL"	0	0	""
+"Via MS 2 Gnd"	0	0	""
+"Via SL 2 Gnd T"	0	0	""
+"Via SL 2 Gnd B"	0	0	""
+"MS Metal"	0	0	""
+"MS Metal-"	0	0	""
+"MS Metal+"	0	0	""
+"TGr Metal"	0	0	""
+"TGr Metal-"	0	0	""
+"TGr Metal+"	0	0	""
+"SL Metal"	0	0	""
+"SL Metal-"	0	0	""
+"SL Metal+"	0	0	""
+"BGr Metal"	0	0	""
+
+$EM_MAPPING_END
+
+
+$FILE_MAPPING_BEGIN
+$FILE_MAP	"Gerber Merged"	2
+"Error"	"N/A"	1
+"Grid"	"N/A"	1
+"Default"	"N/A"	1
+"SubcircuitAnnotation"	"N/A"	1
+"Annotation"	"N/A"	1
+"RatsNest"	"N/A"	1
+"DrillHoles"	"N/A"	1
+"DimensionLines"	"N/A"	1
+"Package"	"N/A"	1
+"Leads"	"N/A"	1
+"Bottom Resistor"	"N/A"	1
+"Top Resistor"	"N/A"	1
+"Via MS 2 SL"	"N/A"	1
+"Via MS 2 Gnd"	"N/A"	0
+"Via SL 2 Gnd T"	"N/A"	0
+"Via SL 2 Gnd B"	"N/A"	0
+"MS Metal"	"N/A"	0
+"MS Metal-"	"N/A"	1
+"MS Metal+"	"N/A"	1
+"TGr Metal"	"N/A"	0
+"TGr Metal-"	"N/A"	0
+"TGr Metal+"	"N/A"	0
+"SL Metal"	"N/A"	1
+"SL Metal-"	"N/A"	1
+"SL Metal+"	"N/A"	1
+"BGr Metal"	"N/A"	0
+$FILE_MAP	"gdsii"	0
+"Error"	"142"	1
+"Grid"	"128"	1
+"Default"	"129"	1
+"SubcircuitAnnotation"	"130"	1
+"Annotation"	"131"	1
+"RatsNest"	"132"	1
+"DrillHoles"	"133"	1
+"DimensionLines"	"134"	1
+"Package"	"146"	1
+"Leads"	"147"	1
+"Bottom Resistor"	"145"	1
+"Top Resistor"	"144"	1
+"Via MS 2 SL"	"138"	1
+"Via MS 2 Gnd"	"150"	0
+"Via SL 2 Gnd T"	"153"	0
+"Via SL 2 Gnd B"	"151"	0
+"MS Metal"	"15"	0
+"MS Metal-"	"16"	0
+"MS Metal+"	"17"	0
+"TGr Metal"	"153"	0
+"TGr Metal-"	"149"	0
+"TGr Metal+"	"148"	0
+"SL Metal"	"139"	1
+"SL Metal-"	"140"	1
+"SL Metal+"	"141"	1
+"BGr Metal"	"152"	0
+$FILE_MAP	"ger"	2
+"Error"	"N/A"	1
+"Grid"	"N/A"	1
+"Default"	"N/A"	1
+"SubcircuitAnnotation"	"N/A"	1
+"Annotation"	"N/A"	1
+"RatsNest"	"N/A"	1
+"DrillHoles"	"N/A"	1
+"DimensionLines"	"N/A"	1
+"Package"	"N/A"	1
+"Leads"	"N/A"	1
+"Bottom Resistor"	"N/A"	1
+"Top Resistor"	"N/A"	1
+"Via MS 2 SL"	"N/A"	1
+"Via MS 2 Gnd"	"N/A"	1
+"Via SL 2 Gnd T"	"N/A"	1
+"Via SL 2 Gnd B"	"N/A"	1
+"MS Metal"	"N/A"	1
+"MS Metal-"	"N/A"	1
+"MS Metal+"	"N/A"	1
+"TGr Metal"	"N/A"	0
+"TGr Metal-"	"N/A"	0
+"TGr Metal+"	"N/A"	0
+"SL Metal"	"N/A"	1
+"SL Metal-"	"N/A"	1
+"SL Metal+"	"N/A"	1
+"BGr Metal"	"N/A"	1
+
+$FILE_MAPPING_END
+
+
+$DRILL_TABLE_BEGIN
+"Drill 1"	1	0.000254
+"Drill 2"	2	0.00127
+"Drill 3"	3	0.00254003
+
+$DRILL_TABLE_END
+
+$LAYER_SETUP_END
+
+!------------- EM Simulation Setup Defined Below ----------------------------
+
+$EM_SETUP_BEGIN
+	$DEFAULT_EM_ENCLOSURE_BEGIN
+	!-----XDIM-----YDIM-----NX-----NY-----
+	!      (m)      (m)
+		0.0008 0.0008 80 80
+	$DEFAULT_EM_ENCLOSURE_END
+
+	$DEFAULT_EM_LAYERS_BEGIN
+	!	Hatch Patterns ------(0)  |||||(1)  \\\\\(2)  /////(3)  +++++(4)  xxxxx(5)
+	!
+	!-----T-----Er-----Tand-----Sigma-----Scale-----CondHatch-----ViaHatch-----
+	!    (m)                    (S/m)                 (0-5)         (0-5)
+	  0.0005 1 0 0 1 0 1
+	  2e-007 6.5 0.005 0 5 4 5
+	  0.0001 12.9 0.0001 0 1 2 3
+	$DEFAULT_EM_LAYERS_END
+
+	$EM_CONDUCTORS_BEGIN
+		$ELECTRICAL_SPEC_BEGIN
+		!-----Name-------rDC-------rHF-------+jX-------Red------Green-----Blue------
+		!              (ohm/sq)  (ohm/sq)  (ohm/sq)  <0-255>   <0-255>   <0-255>
+		   "Tantalum" 50 0 0 0 0 0
+		$ELECTRICAL_SPEC_END
+
+		$PHYSICAL_SPEC_BEGIN
+		!-----Name------T------Sigma-------Red------Green-----Blue------
+		!              (m)     (S/m)     <0-255>   <0-255>   <0-255>
+		   "Cap Bottom" 1e-006 4.1e+007 0 0 0
+		   "Plated Metal" 4e-006 4.1e+007 0 0 0
+		   "Thick Metal" 3e-006 4.1e+007 0 0 0
+		$PHYSICAL_SPEC_END
+	$EM_CONDUCTORS_END
+$EM_SETUP_END
+

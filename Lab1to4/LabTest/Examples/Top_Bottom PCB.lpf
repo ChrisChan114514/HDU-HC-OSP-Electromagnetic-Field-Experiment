@@ -1,0 +1,305 @@
+!-------------- Process Definition File Exported from Microwave Office --------
+! Note, if you want this to be your default LPF file, please rename it to default.lpf 
+! and place it in your root install directory.   
+! Also, the default EM structure settings are at the bottom of this file.  
+$PROCESS_SETUP_BEGIN
+
+	$DEFAULT_UNITS_BEGIN
+		LEN  mil
+		FREQ G
+		CAP  p
+		IND  n
+		RES  none
+		COND none
+		TEMP DegC
+		ANG  Deg
+		TIME n
+		VOLT none
+		CUR  m
+		PWR  m
+	$DEFAULT_UNITS_END
+
+	$DBASE_UNIT_BEGIN
+		DRAW_RESOLUTION	0.005	mil
+		GRID_SPACING	1	mil
+	$DBASE_UNIT_END
+
+	$LINE_TYPE_BEGIN	"15 mil space"
+		! -> Layer 		offset 		minWidth 		flags
+		"Metal"			0		5e-005			0
+		"Metal-"		0.000381	5e-005			0
+	$LINE_TYPE_END
+
+	$LINE_TYPE_BEGIN	"25 mil space"
+		! -> Layer 		offset 		minWidth 		flags
+		"Metal"			0		5e-005			0
+		"Metal-"		0.000635	5e-005			0
+	$LINE_TYPE_END
+
+	$LINE_TYPE_BEGIN	"50 mil space"
+		! -> Layer 		offset 		minWidth 		flags
+		"Metal"			0		5e-005			0
+		"Metal-"		0.00127		5e-005			0
+	$LINE_TYPE_END
+
+	$LINE_TYPE_BEGIN	"75 mil space"
+		! -> Layer 		offset 		minWidth 		flags
+		"Metal"			0		5e-005			0
+		"Metal-"		0.001905	5e-005			0
+	$LINE_TYPE_END
+
+	$VIA_DEFINE_BEGIN
+		! -> Layer 		offset 		minWidth 		flags
+		"Via"			0		0			1
+		"Top Copper"	0.000635	0			1
+		"Top Copper-"	0.00127	0			1
+		"Bottom Copper"	0.000635	0			1
+		"Bottom Copper-"	0.00127	0			1
+	$VIA_DEFINE_END
+
+	!--- Registered drawing utility function used for drawing airbridges ------
+	$BRIDGE_DRAW_BEGIN AWR_MMIC $BRIDGE_DRAW_END
+
+	!--- File used for polygon DRC rules ------
+	$DRC_RULES_FILE_BEGIN "$MWO\drc_rules.txt" $DRC_RULES_FILE_END
+
+	$CONNECT_RULES_BEGIN 
+		Connect "Top Copper" To "Bottom Copper" by "Via"
+	$CONNECT_RULES_END
+	
+	
+	!--- Default font used for layout ------
+	$DEFAULT_FONT_BEGIN "Arial" 	100000	0	0 	$DEFAULT_FONT_END
+
+	$DEFAULT_VALUES_BEGIN
+		W		50		mil
+		L		400		mil
+		H		32		mil
+		T		1.4		mil
+		Er		3.38
+		Rho		1
+		Tand		0
+		C		1		p
+		Li		0		n
+		Rad		100		mil
+		M		0.6
+	$DEFAULT_VALUES_END
+
+
+$PROCESS_SETUP_END
+
+
+!-------------- Drawing Layer Setup Defined Below ------------------------------
+$LAYER_SETUP_BEGIN
+
+$DRAW_LAYERS_BEGIN
+
+!--------------------------------- Layer Entry Descriptions ----------------------------------------------------------------------------------------------------
+! Layer_Name  Line_Color   Fill_Color  line_style hatch isVia isHatchVis isFrozen thickness z_pos texture  transFill  translucent texturescale file_layer options
+!----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+"Error"	255	255	0	16	1	1	0	0	0	""	0	0	1	"Obsolete"	0
+"RatsNest"	4210943	4210943	0	1	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+"Board"	0	16777215	0	1	1	0	0	635000	0	""	1	0.5	0	"Obsolete"	0
+"Via"	255	32896	0	9	1	1	0	635000	0	""	0	0	0	"Obsolete"	0
+"Top Leads"	0	8421504	0	1	1	1	0	203200	670560	""	0	0	0	"Obsolete"	0
+"Top Package"	0	65280	0	5	1	1	0	939800	721360	""	0	0	0	"Obsolete"	0
+"Top Copper"	32896	32896	0	3	1	1	0	35560	635000	""	0	0	1	"Obsolete"	0
+"Top Copper-"	16777215	16777215	0	3	1	1	0	0	635000	""	0	0	0	"Obsolete"	0
+"Top Copper+"	32896	32896	0	3	1	1	0	35560	635000	""	0	0	0	"Obsolete"	0
+"SubcircuitAnnotation"	4259648	4259648	2	8	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+"Annotation"	16776960	16776960	2	8	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+"Default"	0	0	0	0	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+"DrillHoles"	2105376	2105376	0	0	1	1	0	-812800	0	""	0	0	0	"Obsolete"	0
+"DimensionLines"	2105376	2105376	0	0	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+"Bottom Package"	255	255	0	25	1	1	0	-939800	-86360	""	0	0	0	"Obsolete"	0
+"Bottom Leads"	12632256	12632256	0	1	1	1	0	-203200	-35560	""	0	0	0	"Obsolete"	0
+"Bottom Copper"	8421376	8421376	0	5	1	1	0	-35560	0	""	0	0	0	"Obsolete"	0
+"Bottom Copper-"	8421376	16777215	0	5	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+"Bottom Copper+"	8421376	8421376	0	5	1	1	0	-35560	0	""	0	0	0	"Obsolete"	0
+$DRAW_LAYERS_END
+
+$MODEL_LAYER_BEGIN
+
+$MAP_NAME	"Top Side"
+"Error"	"Error"
+"RatsNest"	"RatsNest"
+"Board"	"Board"
+"Via"	"Via"
+"Top Leads"	"Top Leads"
+"Top Package"	"Top Package"
+"Top Copper"	"Top Copper"
+"Top Copper-"	"Top Copper-"
+"Top Copper+"	"Top Copper+"
+"SubcircuitAnnotation"	"SubcircuitAnnotation"
+"Annotation"	"Annotation"
+"Default"	"Default"
+"DrillHoles"	"DrillHoles"
+"DimensionLines"	"DimensionLines"
+"Bottom Package"	"Bottom Package"
+"Bottom Leads"	"Bottom Leads"
+"Bottom Copper"	"Bottom Copper"
+"Bottom Copper-"	"Bottom Copper-"
+"Bottom Copper+"	"Bottom Copper+"
+"PK"	"Top Package"
+"LD"	"Top Leads"
+"Metal"	"Top Copper"
+"Metal-"	"Top Copper-"
+$MAP_NAME	"Bottom Side"
+"Error"	"Error"
+"RatsNest"	"RatsNest"
+"Board"	"Board"
+"Via"	"Via"
+"Top Leads"	"Top Leads"
+"Top Package"	"Top Package"
+"Top Copper"	"Top Copper"
+"Top Copper-"	"Top Copper-"
+"Top Copper+"	"Top Copper+"
+"SubcircuitAnnotation"	"SubcircuitAnnotation"
+"Annotation"	"Annotation"
+"Default"	"Default"
+"DrillHoles"	"DrillHoles"
+"DimensionLines"	"DimensionLines"
+"Bottom Package"	"Bottom Package"
+"Bottom Leads"	"Bottom Leads"
+"Bottom Copper"	"Bottom Copper"
+"Bottom Copper-"	"Bottom Copper-"
+"Bottom Copper+"	"Bottom Copper+"
+"PK"	"Bottom Package"
+"LD"	"Bottom Leads"
+"Metal"	"Bottom Copper"
+"Metal-"	"Bottom Copper-"
+
+$MODEL_LAYER_END
+
+$EM_MAPPING_BEGIN
+$EM_MAP	"Default"
+"Error"	0	0	""
+"RatsNest"	0	0	""
+"Board"	0	0	""
+"Via"	2	1	""
+"Top Leads"	0	0	""
+"Top Package"	0	0	""
+"Top Copper"	2	0	""
+"Top Copper-"	0	0	""
+"Top Copper+"	0	0	""
+"SubcircuitAnnotation"	0	0	""
+"Annotation"	0	0	""
+"Default"	0	0	""
+"DrillHoles"	0	0	""
+"DimensionLines"	0	0	""
+"Bottom Package"	0	0	""
+"Bottom Leads"	0	0	""
+"Bottom Copper"	0	0	""
+"Bottom Copper-"	0	0	""
+"Bottom Copper+"	0	0	""
+
+$EM_MAPPING_END
+
+
+$FILE_MAPPING_BEGIN
+$FILE_MAP	"GDSII"	0
+"Error"	"128"	0
+"RatsNest"	"131"	1
+"Board"	"3"	0
+"Via"	"2"	0
+"Top Leads"	"11"	0
+"Top Package"	"13"	0
+"Top Copper"	"1"	0
+"Top Copper-"	"141"	0
+"Top Copper+"	"140"	0
+"SubcircuitAnnotation"	"129"	1
+"Annotation"	"130"	1
+"Default"	"128"	1
+"DrillHoles"	"143"	0
+"DimensionLines"	"144"	0
+"Bottom Package"	"145"	0
+"Bottom Leads"	"146"	0
+"Bottom Copper"	"142"	0
+"Bottom Copper-"	"144"	0
+"Bottom Copper+"	"143"	0
+$FILE_MAP	"Gerber"	2
+"Error"	"N/A"	0
+"RatsNest"	"NA"	1
+"Board"	"NA"	1
+"Via"	"NA"	1
+"Top Leads"	"NA"	1
+"Top Package"	"NA"	1
+"Top Copper"	"NA"	0
+"Top Copper-"	"N/A"	0
+"Top Copper+"	"N/A"	0
+"SubcircuitAnnotation"	"NA"	1
+"Annotation"	"NA"	1
+"Default"	"NA"	1
+"DrillHoles"	"N/A"	0
+"DimensionLines"	"N/A"	0
+"Bottom Package"	"N/A"	0
+"Bottom Leads"	"N/A"	0
+"Bottom Copper"	"N/A"	0
+"Bottom Copper-"	"N/A"	0
+"Bottom Copper+"	"N/A"	0
+$FILE_MAP	"DXF"	1
+"Error"	"Error"	1
+"RatsNest"	"NA"	1
+"Board"	"NA"	1
+"Via"	"NA"	1
+"Top Leads"	"LD"	0
+"Top Package"	"PK"	0
+"Top Copper"	"NA"	1
+"Top Copper-"	"Layer14"	1
+"Top Copper+"	"Layer13"	1
+"SubcircuitAnnotation"	"NA"	1
+"Annotation"	"NA"	1
+"Default"	"NA"	1
+"DrillHoles"	"DrillHoles"	1
+"DimensionLines"	"DimensionLines"	1
+"Bottom Package"	"Layer18"	1
+"Bottom Leads"	"Layer19"	1
+"Bottom Copper"	"Layer15"	1
+"Bottom Copper-"	"Layer17"	1
+"Bottom Copper+"	"Layer16"	1
+
+$FILE_MAPPING_END
+
+
+$DRILL_TABLE_BEGIN
+"Default"	1	0.000127
+
+$DRILL_TABLE_END
+
+$LAYER_SETUP_END
+
+!------------- EM Simulation Setup Defined Below ----------------------------
+
+$EM_SETUP_BEGIN
+	$DEFAULT_EM_ENCLOSURE_BEGIN
+	!-----XDIM-----YDIM-----NX-----NY-----
+	!      (m)      (m)
+		0.0127 0.0127 100 100
+	$DEFAULT_EM_ENCLOSURE_END
+
+	$DEFAULT_EM_LAYERS_BEGIN
+	!	Hatch Patterns ------(0)  |||||(1)  \\\\\(2)  /////(3)  +++++(4)  xxxxx(5)
+	!
+	!-----T-----Er-----Tand-----Sigma-----Scale-----CondHatch-----ViaHatch-----
+	!    (m)                    (S/m)                 (0-5)         (0-5)
+	  0.00381 1 0 0 1 0 1
+	  0.0008128 3.38 0.003 0 1 2 3
+	$DEFAULT_EM_LAYERS_END
+
+	$EM_CONDUCTORS_BEGIN
+		$ELECTRICAL_SPEC_BEGIN
+		!-----Name-------rDC-------rHF-------+jX-------Red------Green-----Blue------
+		!              (ohm/sq)  (ohm/sq)  (ohm/sq)  <0-255>   <0-255>   <0-255>
+		   "Omega Ply" 50 0 0 0 0 0
+		$ELECTRICAL_SPEC_END
+
+		$PHYSICAL_SPEC_BEGIN
+		!-----Name------T------Sigma-------Red------Green-----Blue------
+		!              (m)     (S/m)     <0-255>   <0-255>   <0-255>
+		   "1oz Cu" 3.556e-005 5.88e+007 0 0 0
+		   "1/2oz Cu" 1.778e-005 5.88e+007 0 0 0
+		$PHYSICAL_SPEC_END
+	$EM_CONDUCTORS_END
+$EM_SETUP_END
+

@@ -1,0 +1,558 @@
+  0
+SECTION
+  2
+HEADER
+  9
+$ACADVER
+  1
+AC1009
+  9
+$INSUNITS
+  70
+9
+  9
+$EXTMIN
+  10
+-8306.22
+  20
+0
+  9
+$EXTMAX
+  10
+39.37
+  20
+308.16
+  0
+ENDSEC
+  0
+SECTION
+  2
+TABLES
+  0
+TABLE
+  2
+LTYPE
+  70
+1
+  0
+LTYPE
+  2
+CONTINUOUS
+  70
+64
+  3
+Solid line
+  72
+65
+  73
+0
+  40
+0
+  0
+ENDTAB
+  0
+TABLE
+  2
+LAYER
+  70
+2
+  0
+LAYER
+  2
+Default
+  70
+0
+  62
+1
+  6
+CONTINUOUS
+  0
+LAYER
+  2
+Copper
+  70
+0
+  62
+1
+  6
+CONTINUOUS
+  0
+ENDTAB
+  0
+ENDSEC
+  0
+SECTION
+  2
+BLOCKS
+  0
+BLOCK
+  2
+chip_cap
+  3
+chip_cap
+  10
+0
+  20
+0
+  70
+0
+  0
+POLYLINE
+  8
+Copper
+  70
+1
+  66
+1
+  0
+VERTEX
+  8
+Copper
+  10
+0
+  20
+10
+  0
+VERTEX
+  8
+Copper
+  10
+0
+  20
+0
+  0
+VERTEX
+  8
+Copper
+  10
+10
+  20
+0
+  0
+VERTEX
+  8
+Copper
+  10
+10
+  20
+10
+  0
+VERTEX
+  8
+Copper
+  10
+0
+  20
+10
+  0
+SEQEND
+  0
+POLYLINE
+  8
+Copper
+  70
+1
+  66
+1
+  0
+VERTEX
+  8
+Copper
+  10
+30
+  20
+10
+  0
+VERTEX
+  8
+Copper
+  10
+30
+  20
+0
+  0
+VERTEX
+  8
+Copper
+  10
+39.37
+  20
+0
+  0
+VERTEX
+  8
+Copper
+  10
+39.37
+  20
+10
+  0
+VERTEX
+  8
+Copper
+  10
+30
+  20
+10
+  0
+SEQEND
+  0
+ENDBLK
+  0
+BLOCK
+  2
+Alpha_212_3
+  3
+Alpha_212_3
+  10
+0
+  20
+0
+  70
+0
+  0
+ENDBLK
+  0
+BLOCK
+  2
+qs_layout
+  3
+qs_layout
+  10
+0
+  20
+0
+  70
+0
+  0
+INSERT
+  8
+Default
+  2
+chip_cap
+  10
+-8306.22
+  20
+298.24
+  50
+0
+  41
+1
+  42
+1
+  0
+INSERT
+  8
+Default
+  2
+Alpha_212_3
+  10
+-7903.42
+  20
+163.4
+  50
+180
+  41
+1
+  42
+1
+  0
+POLYLINE
+  8
+Copper
+  70
+1
+  66
+1
+  0
+VERTEX
+  8
+Copper
+  10
+-8057.87
+  20
+191.86
+  0
+VERTEX
+  8
+Copper
+  10
+-7957.87
+  20
+191.86
+  0
+VERTEX
+  8
+Copper
+  10
+-7957.87
+  20
+201.86
+  0
+VERTEX
+  8
+Copper
+  10
+-8057.87
+  20
+201.86
+  0
+SEQEND
+  0
+POLYLINE
+  8
+Copper
+  70
+1
+  66
+1
+  0
+VERTEX
+  8
+Copper
+  10
+-8077.87
+  20
+191.86
+  0
+VERTEX
+  8
+Copper
+  10
+-8077.87
+  20
+201.86
+  0
+VERTEX
+  8
+Copper
+  10
+-8057.87
+  20
+201.86
+  0
+VERTEX
+  8
+Copper
+  10
+-8057.87
+  20
+191.86
+  0
+SEQEND
+  0
+POLYLINE
+  8
+Copper
+  70
+1
+  66
+1
+  0
+VERTEX
+  8
+Copper
+  10
+-8266.85
+  20
+298.16
+  0
+VERTEX
+  8
+Copper
+  10
+-8177.36
+  20
+298.16
+  0
+VERTEX
+  8
+Copper
+  10
+-8177.36
+  20
+257.99
+  0
+VERTEX
+  8
+Copper
+  10
+-8170.29
+  20
+250.92
+  0
+VERTEX
+  8
+Copper
+  10
+-8126.18
+  20
+250.92
+  0
+VERTEX
+  8
+Copper
+  10
+-8126.18
+  20
+198.93
+  0
+VERTEX
+  8
+Copper
+  10
+-8119.11
+  20
+191.86
+  0
+VERTEX
+  8
+Copper
+  10
+-8077.87
+  20
+191.86
+  0
+VERTEX
+  8
+Copper
+  10
+-8077.87
+  20
+201.86
+  0
+VERTEX
+  8
+Copper
+  10
+-8116.18
+  20
+201.86
+  0
+VERTEX
+  8
+Copper
+  10
+-8116.18
+  20
+253.85
+  0
+VERTEX
+  8
+Copper
+  10
+-8123.25
+  20
+260.92
+  0
+VERTEX
+  8
+Copper
+  10
+-8167.36
+  20
+260.92
+  0
+VERTEX
+  8
+Copper
+  10
+-8167.36
+  20
+301.09
+  0
+VERTEX
+  8
+Copper
+  10
+-8174.43
+  20
+308.16
+  0
+VERTEX
+  8
+Copper
+  10
+-8266.85
+  20
+308.16
+  0
+VERTEX
+  8
+Copper
+  10
+-8266.85
+  20
+298.16
+  0
+SEQEND
+  0
+POLYLINE
+  8
+Copper
+  70
+1
+  66
+1
+  0
+VERTEX
+  8
+Copper
+  10
+-8077.87
+  20
+191.86
+  0
+VERTEX
+  8
+Copper
+  10
+-8077.87
+  20
+41.86
+  0
+VERTEX
+  8
+Copper
+  10
+-8057.87
+  20
+41.86
+  0
+VERTEX
+  8
+Copper
+  10
+-8057.87
+  20
+191.86
+  0
+SEQEND
+  0
+ENDBLK
+  0
+ENDSEC
+  0
+SECTION
+  2
+ENTITIES
+  0
+INSERT
+  8
+Default
+  2
+qs_layout
+  10
+0
+  20
+0
+  50
+0
+  41
+1
+  42
+1
+  0
+ENDSEC
+  0
+EOF

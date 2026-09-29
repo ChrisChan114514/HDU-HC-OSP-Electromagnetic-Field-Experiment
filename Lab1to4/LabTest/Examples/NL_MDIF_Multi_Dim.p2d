@@ -1,0 +1,265 @@
+! ------------------------------------------------------------------
+! ampp2d.p2d
+! ------------------------------------------------------------------
+! This is a sample P2D data file containing an ACDATA block,
+! an NDATA block, and an IMTDATA block.
+! ------------------------------------------------------------------
+!
+
+VAR temp=10
+VAR vgate=3
+BEGIN ACDATA
+! This line and all lines starting with the comment (!) character
+! are ignored. Do not have a blank line or comments as the first
+! line in this file. In a P2D file ACDATA is a required block of
+! data. It may have one or two sections.
+! (a) Required -
+!     Full 2-port small signal S-parameters vs frequency
+! (b) Optional -
+!     Full 2-port large signal S-parameters vs (frequency X power)
+! The small signal data must precede the large signal data in this block.
+# AC( GHZ   S  DB   R 50.0    FC   1.  0. )
+!  Optional Selection: HZ, KHZ, MKZ, or GHZ; Default is GHZ
+!  Optional Selection: S, Z, Y, H, or G;     Default is  S
+!  Optional Selection: MA, DB, or RI;        Default is RI
+!  Optional Selection: R xx;
+!                      where xx=reference resistance;
+!                      Default R 50.0
+!  Optional Selection: FC x1 x2 is for frequency conversion:
+!                                           Fout=x1*Fin + x2
+!                                           Default is  Fout = Fin
+%  F   n11x  n11y  n21x  n21y  n12x  n12y  n22x  n22y
+!  The above line is the format line showing the order
+!  in the following data lines
+!  The columns of data can be in any order
+1.0000	-5.0000	50.000 5.0000 55.000 -50.000 20.000 -15.000 150.000
+2.0000	-6.0000	60.000 6.0000 66.000 -60.000 30.000 -16.000 160.000
+! This is the end of the small signal ACDATA section
+!
+! This is the beginning of the large signal ACDATA section
+% F
+1.00
+% P1 	P2 		n11x  	n11y  	n21x  	n21y  	n12x  	n12y  	n22x  	n22y
+-15.00	-25.0	-5.0000	50.000 5.0000 55.000 -50.000 20.000 -15.000 150.000
+-10.00	-20.0	-6.0000	60.000 6.0000 56.000 -60.000 20.000 -16.000 160.000
+-5.00	-15.0	-7.0000	70.000 7.0000 57.000 -70.000 20.000 -17.000 170.000
+0.00	-10.0	-8.0000	80.000 8.0000 58.000 -80.000 20.000 -18.000 180.000
+% F
+2.00
+% P1 	P2 		n11x  	n11y  	n21x  	n21y  	n12x  	n12y  	n22x  	n22y
+-15.00	-25.0	-5.0000	50.000 5.5000 55.000 -50.000 20.000 -15.000 150.000
+-10.00	-20.0	-6.0000	60.000 6.6000 56.000 -60.000 20.000 -16.000 160.000
+-5.00	-15.0	-7.0000	70.000 7.7000 57.000 -70.000 20.000 -17.000 170.000
+0.00	-10.0	-8.0000	80.000 8.8000 58.000 -80.000 20.000 -18.000 180.000
+! ... (more frequencies and power sweeps under each frequency may be added)
+! This is the end of the small signal ACDATA section
+END
+BEGIN   NDATA
+!  This is an optional block of data
+#  AC( GHZ   RI  S   R  50.0  )
+!  Optional Selection: HZ, KHZ, MKZ, or GHZ; Default is GHZ
+!  Optional Selection: S, Z, Y, H, or G;     Default is  S
+!  Optional Selection: MA, DB, or RI;        Default is RI
+!  Optional Selection: R xx; where xx = reference resistance;
+!  Default R 50.0
+%  F    nfmin   n11x     n11y     rn
+!  The above line is the format line showing the order
+!  in the following data lines
+!  The columns of data can be in any order
+1.0000   1.0000   0.3926   -0.1211    .4
+2.0000   1.5000   0.3517   -0.3054    .45
+END
+
+VAR temp=10
+VAR vgate=5
+BEGIN ACDATA
+! This line and all lines starting with the comment (!) character
+! are ignored. Do not have a blank line or comments as the first
+! line in this file. In a P2D file ACDATA is a required block of
+! data. It may have one or two sections.
+! (a) Required -
+!     Full 2-port small signal S-parameters vs frequency
+! (b) Optional -
+!     Full 2-port large signal S-parameters vs (frequency X power)
+! The small signal data must precede the large signal data in this block.
+# AC( GHZ   S  DB   R 50.0    FC   1.  0. )
+!  Optional Selection: HZ, KHZ, MKZ, or GHZ; Default is GHZ
+!  Optional Selection: S, Z, Y, H, or G;     Default is  S
+!  Optional Selection: MA, DB, or RI;        Default is RI
+!  Optional Selection: R xx;
+!                      where xx=reference resistance;
+!                      Default R 50.0
+!  Optional Selection: FC x1 x2 is for frequency conversion:
+!                                           Fout=x1*Fin + x2
+!                                           Default is  Fout = Fin
+%  F   n11x  n11y  n21x  n21y  n12x  n12y  n22x  n22y
+!  The above line is the format line showing the order
+!  in the following data lines
+!  The columns of data can be in any order
+1.0000	-5.0000	50.000 5.0000 55.000 -50.000 20.000 -15.000 150.000
+2.0000	-6.0000	60.000 6.0000 66.000 -60.000 30.000 -16.000 160.000
+! This is the end of the small signal ACDATA section
+!
+! This is the beginning of the large signal ACDATA section
+% F
+1.00
+% P1 	P2 		n11x  	n11y  	n21x  	n21y  	n12x  	n12y  	n22x  	n22y
+-15.00	-25.0	-5.0000	50.000 15.0000 55.000 -50.000 20.000 -15.000 150.000
+-10.00	-20.0	-6.0000	60.000 16.0000 56.000 -60.000 20.000 -16.000 160.000
+-5.00	-15.0	-7.0000	70.000 17.0000 57.000 -70.000 20.000 -17.000 170.000
+0.00	-10.0	-8.0000	80.000 18.0000 58.000 -80.000 20.000 -18.000 180.000
+% F
+2.00
+% P1 	P2 		n11x  	n11y  	n21x  	n21y  	n12x  	n12y  	n22x  	n22y
+-15.00	-25.0	-5.0000	50.000 15.5000 55.000 -50.000 20.000 -15.000 150.000
+-10.00	-20.0	-6.0000	60.000 16.6000 56.000 -60.000 20.000 -16.000 160.000
+-5.00	-15.0	-7.0000	70.000 17.7000 57.000 -70.000 20.000 -17.000 170.000
+0.00	-10.0	-8.0000	80.000 18.8000 58.000 -80.000 20.000 -18.000 180.000
+! ... (more frequencies and power sweeps under each frequency may be added)
+! This is the end of the small signal ACDATA section
+END
+BEGIN   NDATA
+!  This is an optional block of data
+#  AC( GHZ   RI  S   R  50.0  )
+!  Optional Selection: HZ, KHZ, MKZ, or GHZ; Default is GHZ
+!  Optional Selection: S, Z, Y, H, or G;     Default is  S
+!  Optional Selection: MA, DB, or RI;        Default is RI
+!  Optional Selection: R xx; where xx = reference resistance;
+!  Default R 50.0
+%  F    nfmin   n11x     n11y     rn
+!  The above line is the format line showing the order
+!  in the following data lines
+!  The columns of data can be in any order
+1.0000   2.0000   0.3926   -0.1211    .4
+2.0000   2.5000   0.3517   -0.3054    .45
+END
+
+VAR temp=290
+VAR vgate=3
+BEGIN ACDATA
+! This line and all lines starting with the comment (!) character
+! are ignored. Do not have a blank line or comments as the first
+! line in this file. In a P2D file ACDATA is a required block of
+! data. It may have one or two sections.
+! (a) Required -
+!     Full 2-port small signal S-parameters vs frequency
+! (b) Optional -
+!     Full 2-port large signal S-parameters vs (frequency X power)
+! The small signal data must precede the large signal data in this block.
+# AC( GHZ   S  DB   R 50.0    FC   1.  0. )
+!  Optional Selection: HZ, KHZ, MKZ, or GHZ; Default is GHZ
+!  Optional Selection: S, Z, Y, H, or G;     Default is  S
+!  Optional Selection: MA, DB, or RI;        Default is RI
+!  Optional Selection: R xx;
+!                      where xx=reference resistance;
+!                      Default R 50.0
+!  Optional Selection: FC x1 x2 is for frequency conversion:
+!                                           Fout=x1*Fin + x2
+!                                           Default is  Fout = Fin
+%  F   n11x  n11y  n21x  n21y  n12x  n12y  n22x  n22y
+!  The above line is the format line showing the order
+!  in the following data lines
+!  The columns of data can be in any order
+1.0000	-5.0000	50.000 5.0000 55.000 -50.000 20.000 -15.000 150.000
+2.0000	-6.0000	60.000 6.0000 66.000 -60.000 30.000 -16.000 160.000
+! This is the end of the small signal ACDATA section
+!
+! This is the beginning of the large signal ACDATA section
+% F
+1.00
+% P1 	P2 		n11x  	n11y  	n21x  	n21y  	n12x  	n12y  	n22x  	n22y
+-15.00	-25.0	-5.0000	50.000 20.0000 55.000 -50.000 20.000 -15.000 150.000
+-10.00	-20.0	-6.0000	60.000 20.0000 55.000 -60.000 20.000 -16.000 160.000
+-5.00	-15.0	-7.0000	70.000 19.0000 55.000 -70.000 20.000 -17.000 170.000
+0.00	-10.0	-8.0000	80.000 15.0000 55.000 -80.000 20.000 -18.000 180.000
+% F
+2.00
+% P1 	P2 		n11x  	n11y  	n21x  	n21y  	n12x  	n12y  	n22x  	n22y
+-15.00	-25.0	-5.0000	50.000 20.5000 55.000 -50.000 20.000 -15.000 150.000
+-10.00	-20.0	-6.0000	60.000 20.5000 56.000 -60.000 20.000 -16.000 160.000
+-5.00	-15.0	-7.0000	70.000 19.5000 57.000 -70.000 20.000 -17.000 170.000
+0.00	-10.0	-8.0000	80.000 15.5000 58.000 -80.000 20.000 -18.000 180.000
+! ... (more frequencies and power sweeps under each frequency may be added)
+! This is the end of the small signal ACDATA section
+END
+BEGIN   NDATA
+!  This is an optional block of data
+#  AC( GHZ   RI  S   R  50.0  )
+!  Optional Selection: HZ, KHZ, MKZ, or GHZ; Default is GHZ
+!  Optional Selection: S, Z, Y, H, or G;     Default is  S
+!  Optional Selection: MA, DB, or RI;        Default is RI
+!  Optional Selection: R xx; where xx = reference resistance;
+!  Default R 50.0
+%  F    nfmin   n11x     n11y     rn
+!  The above line is the format line showing the order
+!  in the following data lines
+!  The columns of data can be in any order
+1.0000   3.0000   0.3926   -0.1211    .4
+2.0000   3.5000   0.3517   -0.3054    .45
+END
+
+VAR temp=290
+VAR vgate=5
+BEGIN ACDATA
+! This line and all lines starting with the comment (!) character
+! are ignored. Do not have a blank line or comments as the first
+! line in this file. In a P2D file ACDATA is a required block of
+! data. It may have one or two sections.
+! (a) Required -
+!     Full 2-port small signal S-parameters vs frequency
+! (b) Optional -
+!     Full 2-port large signal S-parameters vs (frequency X power)
+! The small signal data must precede the large signal data in this block.
+# AC( GHZ   S  DB   R 50.0    FC   1.  0. )
+!  Optional Selection: HZ, KHZ, MKZ, or GHZ; Default is GHZ
+!  Optional Selection: S, Z, Y, H, or G;     Default is  S
+!  Optional Selection: MA, DB, or RI;        Default is RI
+!  Optional Selection: R xx;
+!                      where xx=reference resistance;
+!                      Default R 50.0
+!  Optional Selection: FC x1 x2 is for frequency conversion:
+!                                           Fout=x1*Fin + x2
+!                                           Default is  Fout = Fin
+%  F   n11x  n11y  n21x  n21y  n12x  n12y  n22x  n22y
+!  The above line is the format line showing the order
+!  in the following data lines
+!  The columns of data can be in any order
+1.0000	-5.0000	50.000 5.0000 55.000 -50.000 20.000 -15.000 150.000
+2.0000	-6.0000	60.000 6.0000 66.000 -60.000 30.000 -16.000 160.000
+! This is the end of the small signal ACDATA section
+!
+! This is the beginning of the large signal ACDATA section
+% F
+1.00
+% P1 	P2 		n11x  	n11y  	n21x  	n21y  	n12x  	n12y  	n22x  	n22y
+-15.00	-25.0	-5.0000	50.000 35.0000 55.000 -50.000 20.000 -15.000 150.000
+-10.00	-20.0	-6.0000	60.000 35.0000 55.000 -60.000 20.000 -16.000 160.000
+-5.00	-15.0	-7.0000	70.000 35.0000 55.000 -70.000 20.000 -17.000 170.000
+0.00	-10.0	-8.0000	80.000 35.0000 55.000 -80.000 20.000 -18.000 180.000
+% F
+2.00
+% P1 	P2 		n11x  	n11y  	n21x  	n21y  	n12x  	n12y  	n22x  	n22y
+-15.00	-25.0	-5.0000	50.000 35.5000 55.000 -50.000 20.000 -15.000 150.000
+-10.00	-20.0	-6.0000	60.000 36.6000 56.000 -60.000 20.000 -16.000 160.000
+-5.00	-15.0	-7.0000	70.000 37.7000 57.000 -70.000 20.000 -17.000 170.000
+0.00	-10.0	-8.0000	80.000 38.8000 58.000 -80.000 20.000 -18.000 180.000
+! ... (more frequencies and power sweeps under each frequency may be added)
+! This is the end of the small signal ACDATA section
+END
+BEGIN   NDATA
+!  This is an optional block of data
+#  AC( GHZ   RI  S   R  50.0  )
+!  Optional Selection: HZ, KHZ, MKZ, or GHZ; Default is GHZ
+!  Optional Selection: S, Z, Y, H, or G;     Default is  S
+!  Optional Selection: MA, DB, or RI;        Default is RI
+!  Optional Selection: R xx; where xx = reference resistance;
+!  Default R 50.0
+%  F    nfmin   n11x     n11y     rn
+!  The above line is the format line showing the order
+!  in the following data lines
+!  The columns of data can be in any order
+1.0000   4.0000   0.3926   -0.1211    .4
+2.0000   4.5000   0.3517   -0.3054    .45
+END
+!
+! ------------------------------------------------------------------

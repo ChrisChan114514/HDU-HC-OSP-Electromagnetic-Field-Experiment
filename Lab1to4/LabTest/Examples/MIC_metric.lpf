@@ -1,0 +1,229 @@
+$PROCESS_SETUP_BEGIN
+
+	$DEFAULT_UNITS_BEGIN
+		LEN  m
+		FREQ M
+		CAP  u
+		IND  n
+		RES  none
+		COND none
+		TEMP DegC
+		ANG  Deg
+		TIME n
+		VOLT none
+		CUR  m
+		PWR  m
+    $DEFAULT_UNITS_END
+
+    $DBASE_UNIT_BEGIN
+    	DRAW_RESOLUTION   .000000001
+        GRID_SPACING     .0001
+    $DBASE_UNIT_END
+
+    !Create a definition for each type of line
+
+    $LINE_TYPE_BEGIN "Top Copper" !Name is 32 characters max
+        !               min width in meters
+        "Copper"  0       50e-6     0
+    $LINE_TYPE_END
+
+    $VIA_DEFINE_BEGIN
+       !Layer    offset  mitre      isCircle
+        "2_0"	  0       0     1
+    $VIA_DEFINE_END
+
+!--- Registered drawing utility function used for drawing airbridges ------
+	$BRIDGE_DRAW_BEGIN NONE $BRIDGE_DRAW_END
+
+	!--- Register cell to be used by default for route vias ------
+	$ROUTE_VIA_CELL_BEGIN MICMETROUTEVIA $ROUTE_VIA_CELL_END !Name should be one word
+	$CONNECT_RULES_BEGIN 
+		Connect "Copper" To "Via"
+		Connect_All "Via"
+	$CONNECT_RULES_END
+	
+    !!! Could add a definition here for bottom copper or for top and bottom of stripline, etc.
+
+    !!! These default values are used by the microstrip and stripline library
+    $DEFAULT_VALUES_BEGIN
+		W		.001
+		L		.01
+		H		.001
+		T		.00005
+		Rad		0.002
+		Er		3.38
+		Rho		1
+		Tand	0
+		C		1 p
+		Li		1 n
+		M		0.6
+		Cs		.001
+		Extn	.01
+    $DEFAULT_VALUES_END
+
+$PROCESS_SETUP_END
+
+$LAYER_SETUP_BEGIN
+
+    $DRAW_LAYERS_BEGIN
+
+!--------------------------------- Layer Entry Descriptions -----------------------------------------------------------------------------------
+! Layer_Name (32 max)		Line_Color	Fill_Color line hatch  Vis HVis Frozen  thick z_pos  texture  transFill trans texScl file_layer options
+!----------------------------------------------------------------------------------------------------------------------------------------------
+"Error"	       255	255	0	16	1	1	0	35000	0	""	0	0	1	"Obsolete"	0
+"Copper"		0	32896		0	3	1	1	0	35000	      0	""	0	0	1	"Obsolete"	0
+"Footprint"		0	65280		0	2	1	1	0	250000	71000	""	0	0	0	"Obsolete"	0
+"Package"		0	65280		0	5	1	1	0	250000	321000	""	0	0	0	"Obsolete"	0
+"Leads"		0	8421504	0	1	1	1	0	25000	      36000	""	0	0	0	"Obsolete"	0
+"SolderMask"	0	65535		0	1	1	1	0	10000	      1000	""	0	0	0	"Obsolete"	0
+"Via"	          255	32896		0	9	1	1	0	-1e+06	1000	""	0	0	0	"Obsolete"	0
+"NiCr"		0	16711680	0	1	1	1	0	10000	      1000	""	0	0	0	"Obsolete"	0
+"Drill"	    255	12632256	0	9	1	1	0	-1e+06	1000	""	0	0	0	"Obsolete"	0
+"Board"		0	16777215	0	1	1	1	1	-1e+06	-1000	""	1	0.5	0	"Obsolete"	0
+"SubcircuitAnnotation"	4259648	4259648	2	8	0	1	0	0	0	""	0	0	0	"Obsolete"	0
+"Annotation"	16776960	16776960	2	8	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+"RatsNest"	4210943	4210943	2	0	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+"Default"		0	0	0	0	1	1	0	0	0	""	0	0	0	"Obsolete"	0
+
+!colors  0-black  255-red  32896-gold
+
+    $DRAW_LAYERS_END
+
+    $MODEL_LAYER_BEGIN
+
+        $MAP_NAME	"StdMap" !Name is 32 characters max
+
+        !!! Additional maps can be created if you want to map components to different layers
+        !!! User Layers
+
+        "Copper"            "Copper"
+        !!! System layers
+        "Default"			"Default"
+        "SubcircuitAnnotation"	"SubcircuitAnnotation"
+        "Annotation"		"Annotation"
+        "RatsNest"			"RatsNest"
+
+        !!! Layer mapping for GDSII
+        "1_0"			"Copper"
+        "2_0"			"Via"
+        "3_0"			"Board"
+        "4_0"			"NiCr"
+
+        "10_0"		"Footprint"
+        "11_0"		"Leads"
+        "12_0"		"SolderMask"
+        "13_0"		"Package"
+
+        "128_0"		"Default"
+        "129_0"		"SubcircuitAnnotation"
+        "130_0"		"Annotation"
+        "131_0"		"RatsNest"
+
+    $MODEL_LAYER_END
+
+    $FILE_MAPPING_BEGIN
+
+      $FILE_MAP	"GDSII"	0
+        !!! User Layers
+        "Copper"			"1"	0
+        "Via"				"2"	0
+        "Board"			"3"	0
+        "NiCr"			"4"	0
+
+        !!! Layers for packages
+        "Footprint"			"10"	0
+        "Leads"			"11"	0
+        "SolderMask"		"12"	0
+        "Package"			"13"	0
+
+        !!! System layers
+        "Default"			"128"	1
+        "SubcircuitAnnotation"	"129"	1
+        "Annotation"		"130"	1
+        "RatsNest"			"131"	1
+
+      $FILE_MAP	"Gerber"	2
+        "Copper"			"NA"	0
+        "Via"				"NA"	1
+        "Board"			"NA"	1
+        "NiCr"			"NA"	1
+
+        !!! Layers for packages
+        "Footprint"			"NA"	1
+        "Leads"			"NA"	1
+        "SolderMask"		"NA"	1
+        "Package"			"NA"	1
+
+        !!! System layers
+        "Default"			"NA"	1
+        "SubcircuitAnnotation"	"NA"	1
+        "Annotation"		"NA"	1
+        "RatsNest"			"NA"	1
+      
+      $FILE_MAP	"DXF"		1
+        "Copper"			"NA"	0
+        "Via"				"NA"	1
+        "Board"			"NA"	1
+        "NiCr"			"NA"	1
+
+        !!! Layers for packages
+        "Footprint"			"NA"	1
+        "Leads"			"NA"	1
+        "SolderMask"		"NA"	1
+        "Package"			"NA"	1
+
+        !!! System layers
+        "Default"			"NA"	1
+        "SubcircuitAnnotation"	"NA"	1
+        "Annotation"		"NA"	1
+        "RatsNest"			"NA"	1
+
+
+    $FILE_MAPPING_END
+
+    $EM_MAPPING_BEGIN
+    	$EM_MAP	"Default"
+    	"Copper"			2	0	""
+    	"Via"				2	1	""
+    $EM_MAPPING_END
+
+    $DRILL_TABLE_BEGIN
+        "Default"	1	0.001
+	$DRILL_TABLE_END
+
+$LAYER_SETUP_END
+
+
+!------------- EM Simulation Setup Defined Below ----------------------------
+
+$EM_SETUP_BEGIN
+	$DEFAULT_EM_ENCLOSURE_BEGIN
+	!-----XDIM-----YDIM-----NX-----NY-----
+	!      (m)      (m)
+		  10e-3    10e-3    100    100
+	$DEFAULT_EM_ENCLOSURE_END
+
+	$DEFAULT_EM_LAYERS_BEGIN
+	!	Hatch Patterns ------(0)  |||||(1)  \\\\\(2)  /////(3)  +++++(4)  xxxxx(5)
+	!
+	!-----T-----Er-----Tand-----Sigma-----Scale-----CondHatch-----ViaHatch-----
+	!    (m)                    (S/m)                 (0-5)         (0-5)
+	    4.0e-3  1.0     0.0      0.0      1.0          0              1
+	  812.8e-6  3.38    0.003    0.0      1.0          2              3
+	$DEFAULT_EM_LAYERS_END
+
+	$EM_CONDUCTORS_BEGIN !Conductor names are 32 characters max
+		$ELECTRICAL_SPEC_BEGIN
+		!-----Name-------rDC-------rHF-------+jX-------Red------Green-----Blue------
+		!             (ohm/sq)  (ohm/sq)  (ohm/sq)   <0-255>   <0-255>   <0-255>
+		   "Omega Ply"  50.0       0.0       0.0       230        20       50
+		$ELECTRICAL_SPEC_END
+
+		$PHYSICAL_SPEC_BEGIN
+		!-----Name------T------Sigma-------Red------Green-----Blue------
+		!             (m)     (S/m)     <0-255>   <0-255>   <0-255>
+		   "1oz Cu"  35.56e-6 5.88e7      128       128        64
+		  "1/2oz Cu" 17.78e-6 5.88e7      190       190       120
+		$PHYSICAL_SPEC_END
+	$EM_CONDUCTORS_END
+$EM_SETUP_END

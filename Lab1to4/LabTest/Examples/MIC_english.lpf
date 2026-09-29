@@ -1,0 +1,357 @@
+!--- Process Definition File Exported from AWR Design Environment (5875)
+
+$PROCESS_SETUP_BEGIN
+
+	$DEFAULT_UNITS_BEGIN
+		LEN  mil
+		FREQ M
+		CAP  p
+		IND  n
+		RES  none
+		COND none
+		TEMP DegC
+		ANG  Deg
+		TIME n
+		VOLT none
+		CUR  m
+		PWR  m
+	$DEFAULT_UNITS_END
+
+	$DBASE_UNIT_BEGIN
+		DRAW_RESOLUTION	0.005	mil
+		GRID_SPACING	1	mil
+	$DBASE_UNIT_END
+
+	$LINE_TYPE_BEGIN	"Top Copper"
+		! -> Layer 		offset 		minWidth 		flags
+		"Copper"		0		5e-005		0
+	$LINE_TYPE_END
+
+	$VIA_DEFINE_BEGIN
+		! -> Layer 		offset 		mitre 		flags
+		"2_0"		0		0		1
+	$VIA_DEFINE_END
+
+	!--- Register drawing utility function used for drawing airbridges ------
+	$BRIDGE_DRAW_BEGIN NONE $BRIDGE_DRAW_END
+
+	!--- Register cell to be used by default for route vias  ------
+	$ROUTE_VIA_CELL_BEGIN MICENGROUTEVIA $ROUTE_VIA_CELL_END
+
+	!--- DRC Rule deck (path relative to lpf file) ------
+	$DRC_RULES_FILE_BEGIN "$MWO\drc_rules.txt" $DRC_RULES_FILE_END
+
+	!--- DRC engine: AWR, CALIBRE, ASSURA, CIRANOVA, or POLYTEDA ------
+	$DRC_ENGINE_BEGIN "AWR" $DRC_ENGINE_END
+
+	!--- Used by Connectivity tracer ------
+	$CONNECT_RULES_BEGIN 
+		Connect "Copper" To "Via"
+		Connect_All "Via"
+		Connect "Copper" To "Footprint" By "Leads"
+	$CONNECT_RULES_END 
+
+	!--- Default font used for layout ------
+	$DEFAULT_FONT_BEGIN "Arial" 	100000	0	0 	$DEFAULT_FONT_END
+
+	$DEFAULT_VALUES_BEGIN
+		W		50		mil
+		L		400		mil
+		H		32		mil
+		T		1.4		mil
+		Er		3.38
+		Rho		1
+		Tand		0
+		C		1		p
+		Li		1		n
+		Rad		100		mil
+		M		0.6
+		Cs		1		mil
+		Extn		100		mil
+	$DEFAULT_VALUES_END
+
+
+$PROCESS_SETUP_END
+
+
+!-------------- Drawing Layer Setup Defined Below ------------------------------
+$LAYER_SETUP_BEGIN
+
+$DRAW_LAYERS_BEGIN
+
+!--Layer Entry Descriptions---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+! Layer_Name              Line_Color    Fill_Color    Line_Style    Hatch_Style    Visible    Hatch_Visible    Frozen    3D_Thickness    3D_Z_Pos    Texture    Trans_Fill    Translucent    Texture_Scale    File_Layer    Options    Cloak    
+!-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+"Error"                   255           255           0             16             1          1                0         0               0           ""         0             0              1                "Obsolete"    0          0        
+"EMSymbols"               0             0             0             1              1          1                0         0               0           ""         0             0              0                "Obsolete"    0          1        
+"Board"                   0             16777215      0             1              0          1                1         -812800         0           ""         1             0.5            0                "Obsolete"    0          0        
+"Via"                     255           32896         0             9              1          1                0         -812800         0           ""         0             0              0                "Obsolete"    0          0        
+"NiCr"                    0             16711680      0             1              1          1                0         12700           0           ""         0             0              0                "Obsolete"    0          0        
+"Copper"                  0             32896         0             3              1          1                0         35560           0           ""         0             0              1                "Obsolete"    0          0        
+"SolderMask"              0             65535         0             1              1          1                0         50800           35560       ""         0             0              0                "Obsolete"    0          0        
+"Footprint"               0             65280         0             2              1          1                0         12700           86360       ""         0             0              0                "Obsolete"    0          0        
+"Leads"                   0             8421504       0             1              1          1                0         76200           35560       ""         0             0              0                "Obsolete"    0          0        
+"Package"                 0             65280         0             5              1          1                0         254000          111760      ""         0             0              0                "Obsolete"    0          0        
+"LeadsTop"                0             8421504       0             1              1          1                0         76200           365760      ""         0             0              0                "Obsolete"    0          0        
+"Drill"                   255           12632256      0             9              1          1                0         -812800         0           ""         0             0              0                "Obsolete"    0          0        
+"SubcircuitAnnotation"    4259648       4259648       2             8              0          1                0         0               0           ""         0             0              0                "Obsolete"    0          1        
+"Annotation"              16776960      16776960      2             8              1          1                0         0               0           ""         0             0              0                "Obsolete"    0          1        
+"RatsNest"                4210943       4210943       2             0              1          1                0         0               0           ""         0             0              0                "Obsolete"    0          1        
+"Default"                 0             0             0             0              1          1                0         0               0           ""         0             0              0                "Obsolete"    0          1        
+"DrillHoles"              2105376       2105376       0             0              1          1                0         -812800         0           ""         0             0              0                "Obsolete"    0          1        
+"ErrorHighlight"          1113872       1113872       0             5              1          1                0         0               0           ""         0             0              0                "Obsolete"    0          1        
+"Highlight"               65535         65535         0             5              1          1                0         0               0           ""         0             0              0                "Obsolete"    0          1        
+"Selection"               65535         65535         0             5              1          1                0         0               0           ""         0             0              0                "Obsolete"    0          1        
+"SubSelection"            4210943       4210943       0             1              1          1                0         0               0           ""         0             0              0                "Obsolete"    0          1        
+"DimensionLines"          2105376       2105376       0             0              1          1                0         0               0           ""         0             0              0                "Obsolete"    0          1        
+"DynamicHighlight"        65535         65535         2             0              1          1                0         0               0           ""         0             0              0                "Obsolete"    0          1        
+$DRAW_LAYERS_END
+
+$LAYERS_CONFIG_BEGIN
+
+$CONFIG_NAME	"Default"
+! Layer_Name              Line_Color    Fill_Color    Line_Style    Hatch_Style    Visible    Hatch_Visible    Frozen    Trans_Fill    Translucent    Cloak    3D_Thickness    3D_Z_Pos    
+"Annotation"              16776960      16776960      2             8              1          1                0         0             0              1        0               0           
+"Board"                   0             16777215      0             1              0          1                1         1             0.5            0        -812800         0           
+"Copper"                  0             32896         0             3              1          1                0         0             0              0        35560           0           
+"Default"                 0             0             0             0              1          1                0         0             0              1        0               0           
+"DimensionLines"          2105376       2105376       0             0              1          1                0         0             0              1        0               0           
+"Drill"                   255           12632256      0             9              1          1                0         0             0              0        -812800         0           
+"DrillHoles"              2105376       2105376       0             0              1          1                0         0             0              1        -812800         0           
+"DynamicHighlight"        65535         65535         2             0              1          1                0         0             0              1        0               0           
+"EMSymbols"               0             16777215      0             1              1          1                0         0             0              1        0               0           
+"Error"                   255           255           0             16             1          1                0         0             0              0        0               0           
+"ErrorHighlight"          1113872       1113872       0             5              1          1                0         0             0              1        0               0           
+"Footprint"               0             65280         0             2              1          1                0         0             0              0        12700           86360       
+"Highlight"               65535         65535         0             5              1          1                0         0             0              1        0               0           
+"Leads"                   0             8421504       0             1              1          1                0         0             0              0        76200           35560       
+"LeadsTop"                0             8421504       0             1              1          1                0         0             0              0        76200           365760      
+"NiCr"                    0             16711680      0             1              1          1                0         0             0              0        12700           0           
+"Package"                 0             65280         0             5              1          1                0         0             0              0        254000          111760      
+"RatsNest"                4210943       4210943       2             0              1          1                0         0             0              1        0               0           
+"Selection"               65535         65535         0             5              1          1                0         0             0              1        0               0           
+"SolderMask"              0             65535         0             1              1          1                0         0             0              0        50800           35560       
+"SubSelection"            4210943       4210943       0             1              1          1                0         0             0              1        0               0           
+"SubcircuitAnnotation"    4259648       4259648       2             8              0          1                0         0             0              1        0               0           
+"Via"                     255           32896         0             9              1          1                0         0             0              0        -812800         0           
+
+$LAYERS_CONFIG_END
+
+$MODEL_LAYER_BEGIN
+
+$MAP_NAME	"StdMap"
+"Error"                   "Error"
+"EMSymbols"               "EMSymbols"
+"Board"                   "Board"
+"Via"                     "Via"
+"NiCr"                    "NiCr"
+"Copper"                  "Copper"
+"SolderMask"              "SolderMask"
+"Footprint"               "Footprint"
+"Leads"                   "Leads"
+"Package"                 "Package"
+"LeadsTop"                "LeadsTop"
+"Drill"                   "Drill"
+"SubcircuitAnnotation"    "SubcircuitAnnotation"
+"Annotation"              "Annotation"
+"RatsNest"                "RatsNest"
+"Default"                 "Default"
+"DrillHoles"              "DrillHoles"
+"ErrorHighlight"          "ErrorHighlight"
+"Highlight"               "Highlight"
+"Selection"               "Selection"
+"SubSelection"            "SubSelection"
+"DimensionLines"          "DimensionLines"
+"DynamicHighlight"        "DynamicHighlight"
+"1_0"                     "Copper"
+"2_0"                     "Via"
+"3_0"                     "Board"
+"4_0"                     "NiCr"
+"10_0"                    "Footprint"
+"11_0"                    "Leads"
+"12_0"                    "SolderMask"
+"13_0"                    "Package"
+"128_0"                   "Default"
+"129_0"                   "SubcircuitAnnotation"
+"130_0"                   "Annotation"
+"131_0"                   "RatsNest"
+
+$MODEL_LAYER_END
+
+$EM_MAPPING_BEGIN
+$EM_MAP	"Default" !name
+!layer_name em_layer is_via material via_extent
+"Error"                   0	0	""	1
+"EMSymbols"               0	0	""	1
+"Board"                   0	0	""	1
+"Via"                     2	1	""	1
+"NiCr"                    0	0	""	1
+"Copper"                  2	0	""	1
+"SolderMask"              0	0	""	1
+"Footprint"               0	0	""	1
+"Leads"                   0	0	""	1
+"Package"                 0	0	""	1
+"LeadsTop"                0	0	""	1
+"Drill"                   0	0	""	1
+"SubcircuitAnnotation"    0	0	""	1
+"Annotation"              0	0	""	1
+"RatsNest"                0	0	""	1
+"Default"                 0	0	""	1
+"DrillHoles"              0	0	""	1
+"ErrorHighlight"          0	0	""	1
+"Highlight"               0	0	""	1
+"Selection"               0	0	""	1
+"SubSelection"            0	0	""	1
+"DimensionLines"          0	0	""	1
+"DynamicHighlight"        0	0	""	1
+
+$EM_MAPPING_END
+
+
+$FILE_MAPPING_BEGIN
+$FILE_MAP	"GDSII"	0
+!layer_name file_layer skip
+"Error"                   "128"         0
+"EMSymbols"               "144"         0
+"Board"                   "3"           0
+"Via"                     "2"           0
+"NiCr"                    "4"           0
+"Copper"                  "1"           0
+"SolderMask"              "12"          0
+"Footprint"               "10"          0
+"Leads"                   "11"          0
+"Package"                 "13"          0
+"LeadsTop"                "137"         0
+"Drill"                   "138"         0
+"SubcircuitAnnotation"    "129"         1
+"Annotation"              "130"         1
+"RatsNest"                "131"         1
+"Default"                 "128"         1
+"DrillHoles"              "143"         0
+"ErrorHighlight"          "145"         0
+"Highlight"               "146"         0
+"Selection"               "147"         0
+"SubSelection"            "148"         0
+"DimensionLines"          "149"         0
+"DynamicHighlight"        "150"         0
+
+$FILE_MAP	"Gerber"	2
+!layer_name file_layer skip
+"Error"                   "N/A"         0
+"EMSymbols"               "N/A"         0
+"Board"                   "NA"          1
+"Via"                     "NA"          1
+"NiCr"                    "NA"          1
+"Copper"                  "NA"          0
+"SolderMask"              "NA"          1
+"Footprint"               "NA"          1
+"Leads"                   "NA"          1
+"Package"                 "NA"          1
+"LeadsTop"                "N/A"         0
+"Drill"                   "N/A"         0
+"SubcircuitAnnotation"    "NA"          1
+"Annotation"              "NA"          1
+"RatsNest"                "NA"          1
+"Default"                 "NA"          1
+"DrillHoles"              "N/A"         0
+"ErrorHighlight"          "N/A"         0
+"Highlight"               "N/A"         0
+"Selection"               "N/A"         0
+"SubSelection"            "N/A"         0
+"DimensionLines"          "N/A"         0
+"DynamicHighlight"        "N/A"         0
+
+$FILE_MAP	"DXF"	1
+!layer_name file_layer skip
+"Error"                   "Error"       0
+"EMSymbols"               "EMSymbols"   0
+"Board"                   "NA"          1
+"Via"                     "NA"          1
+"NiCr"                    "NA"          1
+"Copper"                  "NA"          0
+"SolderMask"              "NA"          1
+"Footprint"               "NA"          1
+"Leads"                   "NA"          1
+"Package"                 "NA"          1
+"LeadsTop"                "LeadsTop"    0
+"Drill"                   "Drill"       0
+"SubcircuitAnnotation"    "NA"          1
+"Annotation"              "NA"          1
+"RatsNest"                "NA"          1
+"Default"                 "NA"          1
+"DrillHoles"              "DrillHoles"  0
+"ErrorHighlight"          "ErrorHighlight"0
+"Highlight"               "Highlight"   0
+"Selection"               "Selection"   0
+"SubSelection"            "SubSelection"0
+"DimensionLines"          "DimensionLines"0
+"DynamicHighlight"        "DynamicHighlight"0
+
+$FILE_MAPPING_END
+
+
+$DRILL_TABLE_BEGIN
+!drill_name drill_number drill_diameter
+"Default"                 1	0.000127
+
+$DRILL_TABLE_END
+
+$LAYER_SETUP_END
+
+$ROUTER_SETUP_BEGIN
+
+$LAYERS_BEGIN
+!--------------------------------- Layer Entry Descriptions -----------------------------------------------------------
+! layer_name <layer_type> <layer_dir> min_width min_spacing route_grid route_grid_offset
+! <layer_type> = other, nwell, pwell, ndiff, pdiff, nimplant, pimplant, poly, cut, metal, non_contact_metal
+!                diffusion, recognition
+! <layer_dir> = none, horiz, vert
+!----------------------------------------------------------------------------------------------------------------------
+$LAYERS_END
+
+$CONNECT_LAYERS_BEGIN
+!--------------------------------- Connect layer -----------------------------------------------------------
+! <connect_type> <layer>
+! <connect_type> = UNKNOWN CAP_TOP_PLATE CAP_BOTTOM_PLATE SPIRAL_EXIT SPIRAL_TURN RESISTOR RESISTOR_2 RESISTOR_3
+!                 VIA_TOP VIA_BOTTOM DISABLED CAP_TOP_PLATE_2 CAP_BOTTOM_PLATE_2 CAP_TOP_PLATE_3 CAP_BOTTOM_PLATE_3 DEVICE
+!                 DEVICE_2 DEVICE_3
+!-----------------------------------------------------------------------------------------------------------
+$CONNECT_LAYERS_END
+
+$ROUTER_SETUP_END
+
+
+!------------- EM Simulation Setup Defined Below ----------------------------
+
+$EM_SETUP_BEGIN
+	$DEFAULT_EM_ENCLOSURE_BEGIN
+	!-----XDIM-----YDIM-----NX-----NY-----
+	!      (m)      (m)
+		0.0127 0.0127 100 100
+	$DEFAULT_EM_ENCLOSURE_END
+
+	$DEFAULT_EM_LAYERS_BEGIN
+	!	Hatch Patterns ------(0)  |||||(1)  \\\\\(2)  /////(3)  +++++(4)  xxxxx(5)
+	!
+	!-----T-----Er-----Tand-----Sigma-----Scale-----CondHatch-----ViaHatch-----
+	!    (m)                    (S/m)                 (0-5)         (0-5)
+	  0.00381 1 0 0 1 0 1
+	  0.0008128 3.38 0.003 0 1 2 3
+	$DEFAULT_EM_LAYERS_END
+
+	$EM_CONDUCTORS_BEGIN
+		$ELECTRICAL_SPEC_BEGIN
+		!-----Name-------rDC-------rHF-------+jX-------Red------Green-----Blue------
+		!              (ohm/sq)  (ohm/sq)  (ohm/sq)  <0-255>   <0-255>   <0-255>
+		   "Omega Ply" 50 0 0 230 20 50
+		$ELECTRICAL_SPEC_END
+
+		$PHYSICAL_SPEC_BEGIN
+		!-----Name------T------Sigma-------Red------Green-----Blue------
+		!              (m)     (S/m)     <0-255>   <0-255>   <0-255>
+		   "1oz Cu" 3.556e-005 5.88e+007 128 128 64
+		   "1/2oz Cu" 1.778e-005 5.88e+007 190 190 120
+		$PHYSICAL_SPEC_END
+	$EM_CONDUCTORS_END
+$EM_SETUP_END
+

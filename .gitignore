@@ -1,0 +1,150 @@
+# =========================================================
+#  电磁场与微波实验 — 仓库忽略规则
+#  （LaTeX 报告 / AWR·ADS 仿真工程 / 教学资料）
+# =========================================================
+
+# ---------- LaTeX 构建产物 ----------
+*.aux
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.idx
+*.ind
+*.ilg
+*.glg
+*.glo
+*.gls
+*.acn
+*.acr
+*.alg
+*.spl
+*.brf
+*.xdv
+*.dvi
+*.synctex
+*.synctex.gz
+*.synctex.gz(busy)
+*.synctex(busy)
+*.auxlock
+*.upa
+*.upb
+*.sav
+*.nlo
+*.nls
+*.listing
+*.pdfsync
+*-blx.bib
+*.ent
+*.4ct
+*.4tc
+*.lg
+*.idv
+*.xdy
+*-converted-to.pdf
+# 保留：*.tex / *.bib / *.sty / figures/ 一律入库（不写否定规则，靠不匹配实现）
+
+# ---------- AWR / ADS 仿真工程 ----------
+# 工程本体 (.emp/.vin)、原理图 (.sch)、版图 (.dxf) 保留
+TEMP/
+DATA_SETS/
+*.dsp
+*.dse
+*.dds
+*.dsf
+*.ds
+*.dgen
+*.layout.ini
+*.dxf.log
+# 工程自动保存 / 锁定文件
+*.lck
+*.lock
+*.old
+*.orig
+# 注意：DATA_SETS/ 与 TEMP/ 在 Windows 下大小写不敏感，Temp/、temp/ 同样被忽略
+
+# ---------- Visual Studio / VS Code ----------
+.vs/
+.vscode/
+*.vsidx
+*.wsuo
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ---------- MATLAB ----------
+*.asv
+*.autosave
+*.mex*
+*.slxc
+slprj/
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.cache/
+
+# ---------- Office / WPS 临时锁文件 ----------
+# 打开 教学软件资料/实验报告封面模版.docx 时会生成 ~$实验报告封面模版.docx
+~$*
+*.wbk
+*.asd
+
+# ---------- 系统 / 编辑器临时文件 ----------
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+._*
+.directory
+*.lnk
+*.stackdump
+*.tmp
+*.bak
+*~
+*.swp
+*.swo
+
+# ---------- 大型安装包 / 压缩包 ----------
+# 教学软件资料/ 下的 AWRDE 安装包约 263 MB，远超 GitHub 单文件 100 MB 上限，不入库
+教学软件资料/*.zip
+教学软件资料/*.7z
+教学软件资料/*.rar
+*.7z
+*.rar
+*.iso
+*.exe
+*.msi
+
+# ---------- 构建输出 ----------
+build/
+out/
+main.pdf
+*.pdf.tmp
+
+# ---------- 敏感信息 ----------
+.env
+*.license
+*license*.key
+
